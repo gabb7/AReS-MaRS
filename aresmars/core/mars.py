@@ -85,7 +85,6 @@ class MARS(AresMarsBaseClass):
         # Supporting classes
         self.mmd_estimator = MMD(self._initialize_mmd_kernel())
         # Attributes initialization
-        self.mmd_estimator = None
         self.optimizer_tf = None
         return
 
@@ -196,9 +195,9 @@ class MARS(AresMarsBaseClass):
                 session.run(self.optimizer_tf)
                 n += 1
             theta = session.run(self.trainable.theta)
-            sigma = session.run(self.data_gp_sampler.sigma_matrix)
+            gmat = session.run(self.data_gp_sampler.g_matrix)
         tf.reset_default_graph()
-        return theta, sigma
+        return theta, gmat
 
     def test(self, n_batches=10000, visualization_frequency: int = 0,
              plot: bool = False) -> Tuple[np.array, np.array]:
@@ -225,6 +224,6 @@ class MARS(AresMarsBaseClass):
                 session.run(self.optimizer_tf)
                 n += 1
             theta = session.run(self.trainable.theta)
-            sigma = session.run(self.data_gp_sampler.sigma_matrix)
+            gmat = session.run(self.data_gp_sampler.g_matrix)
         tf.reset_default_graph()
-        return theta, sigma
+        return theta, gmat
