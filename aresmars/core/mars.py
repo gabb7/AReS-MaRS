@@ -53,7 +53,7 @@ class MARS(AresMarsBaseClass):
         regression. Valid options are 'ExpDecay', if None the zero-mean function
         is used;
         :param initial_gmat_value: initial value for the matrix G multiplicating
-        the Wiener process.
+        the Wiener process;
         :param mmd_kernel: kernel used for the computation of the MMD estimator.
         Valid options are 'RBF', 'RBFMixture', 'RationalQuadratic', 'Linear';
         :param optimizer: string describing the type of optimizer to use, valid
