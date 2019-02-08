@@ -325,9 +325,9 @@ class ARES(AresMarsBaseClass):
                 if session.run(self.c_loss) == 0.0:
                     break
             theta = session.run(self.trainable.theta)
-            sigma = session.run(self.data_gp_sampler.sigma_matrix)
+            gmat = session.run(self.data_gp_sampler.g_matrix)
         tf.reset_default_graph()
-        return theta, sigma
+        return theta, gmat
 
     def test(self, n_batches: int = 10000,
              visualization_frequency: int = 100,
@@ -346,8 +346,8 @@ class ARES(AresMarsBaseClass):
         with session:
             session.run(self.init)
             self._train_data_based_gp(session)
-            print("Estimated Sigma matrix:\n",
-                  session.run(self.data_gp_sampler.sigma_matrix))
+            print("Estimated G matrix:\n",
+                  session.run(self.data_gp_sampler.g_matrix))
             n = 0
             while n < n_batches:
                 if visualization_frequency and n % visualization_frequency == 0:
@@ -365,6 +365,6 @@ class ARES(AresMarsBaseClass):
                     break
                 n += 1
             theta = session.run(self.trainable.theta)
-            sigma = session.run(self.data_gp_sampler.sigma_matrix)
+            gmat = session.run(self.data_gp_sampler.g_matrix)
         tf.reset_default_graph()
-        return theta, sigma
+        return theta, gmat
