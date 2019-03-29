@@ -2,9 +2,10 @@
 
 This repository contains code that implements the AReS and MaRS algorithms as presented in the paper:
 
-Gabriele Abbati*, Philippe Wenk*, Stefan Bauer, Michael A Osborne, Andreas Krause and Bernhard Schölkopf (2019). AReS and MaRS - Adversarial and MMD-Minimizing Regression for SDEs.
-
-*: equal contribution
+> [**AReS and MaRS - Adversarial and MMD-Minimizing Regression for SDEs.**](https://arxiv.org/abs/1902.08480)
+> *Gabriele Abbati\*, Philippe Wenk\*, Stefan Bauer, Michael A Osborne, Andreas Krause and Bernhard Schölkopf*. arXiv preprint, 2019.
+> \
+> \*: equal contribution
 
 ## Code
 
